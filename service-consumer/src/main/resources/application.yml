@@ -1,0 +1,25 @@
+
+spring:
+  application:
+    name: service-consumer
+
+
+user:
+  service:
+    version: 1.0.0
+dubbo:
+  scan:
+    basePackages: com.jason.serviceconsumer.controll
+
+
+  application:
+    id: service-consumer
+    name: service-consumer
+  protocol:
+    id: dubbo
+    name: dubbo
+    port: 12345
+  registry:
+    id: zookeeper
+    address: zookeeper://139.9.195.148:2181 # ?backup=ip:port,ip:port
+
