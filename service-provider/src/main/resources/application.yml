@@ -1,0 +1,26 @@
+
+spring:
+  application:
+    name: service-provider
+
+
+user:
+  service:
+    version: 1.0.0
+dubbo:
+  scan:
+    basePackages: com.jason.serviceprovider.Impl
+
+  application:
+    id: service-provider
+    name: service-provider
+
+  protocol:
+    id: dubbo
+    name: dubbo
+    port: 12345
+  registry:
+    id: zookeeper
+    address: zookeeper://139.9.195.148:2181 #如果是zookeeper集群还要加上 ?backup=ip:port,ip:port
+  provider:
+    loadbalance: roundrobin #设置这个provider的服务为轮询服务方式调用
