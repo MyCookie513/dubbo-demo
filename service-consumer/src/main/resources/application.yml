@@ -10,8 +10,6 @@ user:
 dubbo:
   scan:
     basePackages: com.jason.serviceconsumer.controll
-
-
   application:
     id: service-consumer
     name: service-consumer
@@ -19,7 +17,19 @@ dubbo:
     id: dubbo
     name: dubbo
     port: 12345
+    serialization: kryo
   registry:
     id: zookeeper
     address: zookeeper://139.9.195.148:2181 # ?backup=ip:port,ip:port
 
+hystrix: #熔断超时机制超时设定，通用配置；
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 1000
+  circuitBreaker:
+    sleepWindowInMilliseconds: 30 #短路多久后进行尝试连接
+    requestVolumeThreshold: 3 #请求失败阈值
+    errorThresholdPercentage: 10 #请求失败的百分比为多少时开始熔断；

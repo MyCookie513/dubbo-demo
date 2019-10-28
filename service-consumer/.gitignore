@@ -1,9 +1,12 @@
 HELP.md
 target/
-!.mvn/wrapper/maven-wrapper.jar
+.mvn/
 !**/src/main/**
 !**/src/test/**
-
+.gitignore
+mvnw
+mvnw.cmd
+service-consumer.iml
 ### STS ###
 .apt_generated
 .classpath
